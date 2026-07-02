@@ -51,7 +51,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.sovereign = import ../../home;
+    users.anderson = import ../../home;
   };
 
   system.stateVersion = "25.05";
