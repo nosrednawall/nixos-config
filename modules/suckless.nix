@@ -41,5 +41,14 @@ in
     pkgs.gcc
     pkgs.gnumake
     pkgs.pkg-config
+    pkgs.harfbuzz
+    pkgs.imlib2
+    pkgs.libXrandr
+    pkgs.libxcb
+    pkgs.libxcb-wm
+    pkgs.libxcb-util
+    pkgs.libxcb-image
+    pkgs.libxcb-util
+    pkgs.gd
   ];
 }
