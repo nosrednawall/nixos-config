@@ -50,5 +50,7 @@ in
     pkgs.libxcb-image
     pkgs.libxcb-util
     pkgs.gd
+
+    pkgs.xorg.xinit
   ];
 }
