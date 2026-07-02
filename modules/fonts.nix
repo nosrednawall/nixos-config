@@ -7,6 +7,8 @@
       noto-fonts-cjk-sans
       jetbrains-mono
       liberation_ttf
+      nerd-fonts-iosevka-term
+      nerd-fonts-symbols-only
     ];
 
     fontconfig.defaultFonts = {
