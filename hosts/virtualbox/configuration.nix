@@ -31,7 +31,7 @@
   time.hardwareClockInLocalTime = true;
 
   # Blacklist NVIDIA — Intel iGPU only
-  boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
+  #boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -56,5 +56,5 @@
     users.anderson = import ../../home;
   };
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 }
