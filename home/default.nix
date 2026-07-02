@@ -11,10 +11,10 @@
     ./theming.nix
   ];
 
-  home.username = "sovereign";
-  home.homeDirectory = "/home/sovereign";
+  home.username = "anderson";
+  home.homeDirectory = "/home/anderson";
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
 
   programs.home-manager.enable = true;
 }

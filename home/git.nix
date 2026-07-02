@@ -3,8 +3,8 @@
 {
   programs.git = {
     enable = true;
-    userName = "YannickHerrero";
-    userEmail = "yannick.herrero@proton.me";
+    userName = "nosrednawall";
+    userEmail = "nosrednawall@gmail.com";
 
     delta = {
       enable = true;

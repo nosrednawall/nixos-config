@@ -17,7 +17,7 @@ in
   # X11 with French AZERTY layout
   services.xserver = {
     enable = true;
-    xkb.layout = "fr";
+    xkb.layout = "en";
 
     windowManager.dwm = {
       enable = true;
