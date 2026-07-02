@@ -26,7 +26,7 @@
         autocrlf = "input";
       };
       credential.helper = "store";
-      interactive.diffFilter = "delta --color-only";
+     # interactive.diffFilter = "delta --color-only";
       pull.rebase = false;
       merge = {
         tool = "nvimdiff";
