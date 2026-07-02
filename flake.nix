@@ -19,7 +19,7 @@
     nixosConfigurations.pulse15 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./hosts/pulse15/configuration.nix
+        ./hosts/viretual/configuration.nix
         home-manager.nixosModules.home-manager
       ];
     };
@@ -33,5 +33,14 @@
         home-manager.nixosModules.home-manager
       ];
     };
+
+    nixosConfigurations.virtualbox = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/virtualbox/configuration.nix
+        home-manager.nixosModules.home-manager
+      ];
+    };
+
   };
 }
