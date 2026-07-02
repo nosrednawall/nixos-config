@@ -20,7 +20,7 @@
     grub = {
       enable = true;
       device = "nodev";
-      efiSupport = true;
+      efiSupport = false;
       useOSProber = true;
     };
   };
