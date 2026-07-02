@@ -5,12 +5,12 @@
   fonts.enableDefaultPackages = true;
   imports = [
     ./hardware-configuration.nix
-    ../../modules/suckless.nix
     ../../modules/audio.nix
     ../../modules/networking.nix
     ../../modules/locale.nix
     ../../modules/fonts.nix
     ../../modules/packages.nix
+    ../../modules/suckless.nix
   ];
 
   # Hostname
