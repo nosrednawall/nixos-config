@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
+
+  fonts.enableDefaultPackages = true;
   imports = [
     ./hardware-configuration.nix
     ../../modules/suckless.nix
