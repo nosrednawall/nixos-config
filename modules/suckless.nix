@@ -166,19 +166,18 @@ in
     mySt
     myDmenu
     myDwmblocks
-    #mySlock
-    pkgs.slock
+    mySlock
+    #pkgs.slock
     pkgs.slstatus
     pkgs.xinit
 
   ];
 
-  security.wrappers = {
+  security.wrappers.mySlock = {
     slock = {
       setuid = true;
-      setgid = true;  # ← ADICIONE TAMBÉM
-      owner = "nobody";
-      group = "nogroup";
+      owner = "root";
+      group = "root";
       source = "${mySlock}/bin/slock";
     };
   };
