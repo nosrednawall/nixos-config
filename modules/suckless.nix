@@ -12,8 +12,9 @@ let
 
 
       #fontconfig
-      xorg.libXext
-      xorg.libXpm
+
+      #libXext
+      #libXpm
       imlib2
       gd
       gcc
