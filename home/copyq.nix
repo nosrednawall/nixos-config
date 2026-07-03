@@ -12,7 +12,7 @@
     showTray=true
     saveOnExit=true
     maxClipboardItems=50
-    shortcuts=ctrl+alt+v
+    shortcuts=meta+v
     theme=default
     language=pt_BR
     style=Default
