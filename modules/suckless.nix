@@ -3,7 +3,29 @@
 let
 
   baseLibs = with pkgs; [
-     makeWrapper
+    makeWrapper
+    xorg.libX11
+    xorg.libXinerama
+    xorg.libXft
+    xorg.libXrender
+    xorg.libXres
+    xorg.libXrandr
+    libxcb
+    libxcb-wm
+    libxcb-util
+    libxcb-image
+    fontconfig
+    xorg.libXext
+    xorg.libXpm
+    imlib2
+    gd
+    gcc
+    gnumake
+    pkg-config
+    harfbuzz
+    imlib2
+    libXrandr
+
   ];
 
   dwmLibs = with pkgs; [
@@ -29,8 +51,7 @@ let
 
 
   dwmblocksLibs = with pkgs; [
-    libXinerama
-    libXft
+
   ];
 
   myDwm = pkgs.dwm.overrideAttrs (old: {
