@@ -10,7 +10,7 @@ let
      #libXres
      #libXrandr
      #libxcb
-     libxcb-wm
+     #libxcb-wm
      libxcb-util
      libxcb-image
      fontconfig
