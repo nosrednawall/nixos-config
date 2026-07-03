@@ -6,7 +6,7 @@ let
       makeWrapper
 #      xorg.libX11
 
-#      xorg.libXft
+
       xorg.libXrender
       xorg.libXres
       xorg.libXrandr
@@ -26,6 +26,7 @@ let
 
   dwmLibs = with pkgs; [
       libXinerama
+      libXft
   ];
 
   myDwm = pkgs.dwm.overrideAttrs (old: {
