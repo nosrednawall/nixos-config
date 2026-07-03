@@ -10,9 +10,9 @@ let
     xorg.libXrender
     xorg.libXres
     xorg.libXrandr
-    libxcb
+
     libxcb-wm
-    libxcb-util
+
     libxcb-image
     fontconfig
     xorg.libXext
@@ -27,6 +27,17 @@ let
     libXrandr
 
   ];
+
+#        linux-vdso.so.1 (0x00007f8ccdcfe000)
+
+
+#        libc.so.6 => /usr/lib/libc.so.6 (0x00007f8ccda00000)
+#
+
+
+#        /lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007f8ccdd00000)
+
+
 
   dwmLibs = with pkgs; [
       libXinerama
@@ -51,6 +62,11 @@ let
 
 
   dwmblocksLibs = with pkgs; [
+    libxcb-util
+    libxcb
+    libXau
+    libXdmcp
+
 
   ];
 
