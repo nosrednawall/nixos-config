@@ -14,7 +14,7 @@ let
       #fontconfig
 
       #libXext
-      #libXpm
+      libXpm
       imlib2
       gd
       gcc
