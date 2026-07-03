@@ -46,6 +46,19 @@ let
       pkgs.xorg.libX11
       pkgs.xorg.libXft
       pkgs.xorg.libXinerama
+      pkgs.xorg.libXres
+      pkgs.gcc
+      pkgs.gnumake
+      pkgs.pkg-config
+      pkgs.harfbuzz
+      pkgs.imlib2
+      pkgs.libXrandr
+      pkgs.libxcb
+      pkgs.libxcb-wm
+      pkgs.libxcb-util
+      pkgs.libxcb-image
+      pkgs.gd
+      pkgs.fontconfig
     ];
     postInstall = ''
       wrapProgram $out/bin/dmenu \
