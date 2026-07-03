@@ -156,7 +156,10 @@ in
     #pkgs.slock
     pkgs.slstatus
     pkgs.xinit
-
+    (pkgs.runCommand "slock" {} ''
+      mkdir -p $out/bin
+      ln -s ${mySlock}/bin/slock $out/bin/slock
+    '')
   ];
 
   security.wrappers = {
@@ -168,5 +171,4 @@ in
     };
   };
 
-  programs.slock.enable = false;
 }
