@@ -177,8 +177,8 @@ in
     slock = {
       setuid = true;
       setgid = true;  # ← ADICIONE TAMBÉM
-      owner = "root";
-      group = "root";
+      owner = "nobody";
+      group = "nogroup";
       source = "${mySlock}/bin/slock";
     };
   };
