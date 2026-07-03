@@ -7,7 +7,7 @@ let
      #xorg.libX11
 
      #xorg.libXinerama
-     #xorg.libXft
+
      xorg.libXrender
      xorg.libXres
      xorg.libXrandr
@@ -41,6 +41,7 @@ let
 
   stLibs = with pkgs; [
     libconfig
+    libXft
   ];
 
 
