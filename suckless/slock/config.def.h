@@ -1,6 +1,6 @@
 /* user and group to drop privileges to */
-static const char *user = "nobody";
-static const char *group = "nogroup"; // use "nobody" for arch
+static const char *user = "nixos";
+static const char *group = "nixos"; // use "nobody" for arch
 
 #include "themes/nord_dark.h"
 
