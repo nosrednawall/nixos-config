@@ -20,8 +20,8 @@ let
       #gnumake
       #
       pkg-config
-      harfbuzz
-      #imlib2
+      #harfbuzz
+
       #libXrandr
   ];
 
@@ -30,6 +30,7 @@ let
       libXft
       libxcb
       libXext
+      imlib2
   ];
 
   myDwm = pkgs.dwm.overrideAttrs (old: {
