@@ -135,10 +135,6 @@ let
 
 in
 {
-  programs.slock = {
-      enable = true;
-      package = mySlock
-  };
 
   services.xserver = {
     enable = true;
@@ -164,12 +160,6 @@ in
       mkdir -p $out/bin
       ln -s ${mySlock}/bin/slock $out/bin/slock
     '')
-
-    programs.slock = {
-      enable = true;
-      package = mySlock
-    };
-
   ];
 
   security.wrappers = {
@@ -181,7 +171,9 @@ in
     };
   };
 
-  # Desabilita o slock do nixos
-
+  programs.slock = {
+      enable = true;
+      package = mySlock
+  };
 
 }
