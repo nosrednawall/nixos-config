@@ -23,7 +23,7 @@ let
      #gcc
      #gnumake
      #pkg-config
-     #harfbuzz
+     harfbuzz
      imlib2
      libXrandr
      libXcursor
