@@ -173,8 +173,8 @@ in
 
   ];
 
-  security.wrappers.slock = {
-    slock = {
+  security.wrappers = {
+    mySlock = {
       setuid = true;
       owner = "root";
       group = "root";
