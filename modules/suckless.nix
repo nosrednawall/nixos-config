@@ -24,8 +24,8 @@ let
      #gnumake
      #pkg-config
 
-     #imlib2
-     libXrandr
+
+     #libXrandr
      libXcursor
      freetype
 
@@ -43,6 +43,7 @@ let
     libconfig
     libXft
     harfbuzz
+    imlib2
   ];
 
 
