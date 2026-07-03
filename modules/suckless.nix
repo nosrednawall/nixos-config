@@ -12,10 +12,9 @@ let
 
 
       #fontconfig
-
-      libXext
       #libXpm
-      imlib2
+
+      #imlib2
       gd
       gcc
       gnumake
@@ -29,6 +28,7 @@ let
       libXinerama
       libXft
       libxcb
+      libXext
   ];
 
   myDwm = pkgs.dwm.overrideAttrs (old: {
