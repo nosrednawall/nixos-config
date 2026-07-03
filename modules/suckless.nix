@@ -76,5 +76,24 @@ in
     pkgs.slock
     pkgs.slstatus
     pkgs.xinit
-  ];
+
+  ] ++ (with pkgs; [
+    # Build dependencies (para compilar manualmente)
+    xorg.libX11
+    xorg.libXft
+    xorg.libXinerama
+    xorg.libXres
+    gcc
+    gnumake
+    pkg-config
+    harfbuzz
+    imlib2
+    libXrandr
+    libxcb
+    libxcb-wm
+    libxcb-util
+    libxcb-image
+    gd
+    fontconfig
+  ]);
 }
