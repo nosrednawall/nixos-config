@@ -9,7 +9,7 @@ let
      #libXrender
      #libXres
      #libXrandr
-     libxcb
+     #libxcb
      libxcb-wm
      libxcb-util
      libxcb-image
