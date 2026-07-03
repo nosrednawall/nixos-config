@@ -177,6 +177,7 @@ in
   security.wrappers = {
     slock = {
       setuid = true;
+      setgid = true;  # ← ADICIONE TAMBÉM
       owner = "root";
       group = "root";
       source = "${mySlock}/bin/slock";
