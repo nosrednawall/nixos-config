@@ -5,7 +5,7 @@ let
   baseLibs = with pkgs; [
       makeWrapper
 #      xorg.libX11
-      xorg.libXinerama
+
       xorg.libXft
       xorg.libXrender
       xorg.libXres
@@ -24,9 +24,13 @@ let
       libXrandr
   ];
 
+  dwmLibs = with pkgs; [
+      libXinerama
+  ];
+
   myDwm = pkgs.dwm.overrideAttrs (old: {
     src = ../suckless/dwm;
-    buildInputs = baseLibs;
+    buildInputs = baseLibs ++ dwmLibs;
 
     # Isto vai criar um wrapper que aponta para as bibliotecas corretas
     postInstall = ''
