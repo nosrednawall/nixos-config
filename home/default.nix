@@ -10,6 +10,7 @@
     ./ohmyposh.nix
     ./theming.nix
     ./scripts.nix
+    ./polkit.nix
   ];
 
   home.username = "anderson";

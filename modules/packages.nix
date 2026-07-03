@@ -21,6 +21,7 @@
     lazygit
     delta
     btop
+    xautolock
 
 
     # GUI
