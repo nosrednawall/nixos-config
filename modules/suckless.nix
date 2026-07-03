@@ -13,8 +13,8 @@ let
 
       #fontconfig
 
-      #libXext
-      libXpm
+      libXext
+      #libXpm
       imlib2
       gd
       gcc
