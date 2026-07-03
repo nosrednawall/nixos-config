@@ -20,7 +20,7 @@
 
 // Define blocks for the status feed as X(icon, cmd, interval, signal).
 #define BLOCKS(X)                                   \
-    X("", SCRIPT_PATH("sb-potato-c"),      1, 19)   \
+/*    X("", SCRIPT_PATH("sb-potato-c"),      1, 19)   \
     X("", SCRIPT_PATH("sb-players"),       1, 18)   \
     X("", SCRIPT_PATH("sb-weather"),     600, 17)   \
     X("", SCRIPT_PATH("sb-update"),     6000, 16)   \
@@ -36,7 +36,7 @@
     X("", SCRIPT_PATH("sb-record"),      100,  6)   \
     X("", SCRIPT_PATH("sb-keyboard"),      1,  5)   \
     X("", SCRIPT_PATH("sb-battery"),      30,  4)   \
-    X("", SCRIPT_PATH("sb-moon"),       6000,  3)   \
+*/  X("", SCRIPT_PATH("sb-moon"),       6000,  3)   \
     X("", SCRIPT_PATH("sb-date"),        600,  2)   \
     X("", SCRIPT_PATH("sb-hour"),          1,  1)
 
