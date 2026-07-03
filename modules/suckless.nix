@@ -23,8 +23,8 @@ let
      #gcc
      #gnumake
      #pkg-config
-     harfbuzz
-     imlib2
+
+     #imlib2
      libXrandr
      libXcursor
      freetype
@@ -42,6 +42,7 @@ let
   stLibs = with pkgs; [
     libconfig
     libXft
+    harfbuzz
   ];
 
 
