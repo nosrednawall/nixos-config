@@ -6,7 +6,7 @@ let
       makeWrapper
 #      xorg.libX11
 
-      xorg.libXft
+#      xorg.libXft
       xorg.libXrender
       xorg.libXres
       xorg.libXrandr
