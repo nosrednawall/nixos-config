@@ -56,5 +56,7 @@
     users.anderson = import ../../home;
   };
 
+  # Enable flatpak in system
+  services.flatpak.enable = true;
   system.stateVersion = "26.05";
 }
