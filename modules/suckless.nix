@@ -16,10 +16,10 @@ let
      #fontconfig
      #xorg.libXext
      #xorg.libXpm
-     imlib2
-     gd
-     gcc
-     gnumake
+     #imlib2
+     #gd
+     #gcc
+     #gnumake
      pkg-config
      harfbuzz
      imlib2
