@@ -7,9 +7,12 @@
 
   home.file.".xprofile".text = ''
     # Garante o PATH do NixOS para o .xprofile
-    export PATH="$HOME/.nix-profile/bin:/run/current-system/sw/bin:$PATH"
+    export PATH="$HOME/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:$PATH"
 
-    # Inicia o CopyQ
-    /run/current-system/sw/bin/copyq --start-server --disable-tray &
-    '';
+    # Aguarda o servidor X iniciar
+    sleep 2
+
+    # Inicia o CopyQ usando o caminho do perfil do usuário
+    ${pkgs.copyq}/bin/copyq --start-server --disable-tray &
+  '';
 }
