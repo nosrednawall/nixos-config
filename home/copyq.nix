@@ -11,14 +11,20 @@
       After = [ "graphical-session.target" ];
       Wants = [ "graphical-session.target" ];
       PartOf = [ "graphical-session.target" ];
+      ConditionEnvironment = "DISPLAY";
     };
 
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.copyq}/bin/copyq --config-dir %h/.config/copyq";
+      # Adiciona a flag --start-server para iniciar o servidor
+      ExecStart = "${pkgs.copyq}/bin/copyq --start-server --config-dir %h/.config/copyq";
       Restart = "on-failure";
-      RestartSec = 3;
-      Environment = "DISPLAY=:0";
+      RestartSec = 5;
+      TimeoutStopSec = 10;
+      Environment = [
+        "DISPLAY=:0"
+        "QT_QPA_PLATFORM=xcb"
+      ];
     };
 
     Install = {
