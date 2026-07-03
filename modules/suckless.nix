@@ -5,15 +5,12 @@ let
   baseLibs = with pkgs; [
       makeWrapper
 #      xorg.libX11
-      xorg.libXinerama
+#      xorg.libXinerama
       xorg.libXft
       xorg.libXrender
       xorg.libXres
       xorg.libXrandr
       libxcb
-      libxcb-wm
-      libxcb-util
-      libxcb-image
       fontconfig
       xorg.libXext
       xorg.libXpm
