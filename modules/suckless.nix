@@ -7,7 +7,7 @@ let
 #      xorg.libX11
 
 
-      xorg.libXrender
+      #libXrender
       xorg.libXres
       xorg.libXrandr
       libxcb
