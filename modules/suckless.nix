@@ -11,7 +11,7 @@ let
      #libXrandr
      #libxcb
      #libxcb-wm
-     libxcb-util
+     #libxcb-util
      libxcb-image
      fontconfig
      xorg.libXext
