@@ -52,7 +52,7 @@ let
         --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
       # Também wrap do stest (usado pelo dmenu_run)
       wrapProgram $out/bin/stest \
-        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath buildInputs}
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
     '';
   });
 in
