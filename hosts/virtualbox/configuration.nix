@@ -49,6 +49,12 @@
     extraGroups = [ "wheel" "networkmanager" "video" "audio" "bluetooth" ];
   };
 
+  users.users.nobody = {
+    isSystemUser = true;
+    group = "nobody";
+  };
+  users.groups.nobody = {};
+
   # Home Manager
   home-manager = {
     useGlobalPkgs = true;
