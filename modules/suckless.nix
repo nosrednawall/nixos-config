@@ -19,7 +19,7 @@ let
       #gcc
       #gnumake
       #
-      pkg-config
+      #pkg-config
       #harfbuzz
 
       #libXrandr
