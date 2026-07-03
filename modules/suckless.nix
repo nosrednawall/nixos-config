@@ -135,8 +135,11 @@ let
 
 in
 {
-  programs.slock.enable = false;
-  # X11 with French AZERTY layout
+  programs.slock = {
+      enable = true;
+      package = mySlock
+  };
+
   services.xserver = {
     enable = true;
     xkb.layout = "us";
@@ -161,6 +164,12 @@ in
       mkdir -p $out/bin
       ln -s ${mySlock}/bin/slock $out/bin/slock
     '')
+
+    programs.slock = {
+      enable = true;
+      package = mySlock
+    };
+
   ];
 
   security.wrappers = {
@@ -171,5 +180,8 @@ in
       source = "${mySlock}/bin/slock";
     };
   };
+
+  # Desabilita o slock do nixos
+
 
 }
