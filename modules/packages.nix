@@ -20,7 +20,8 @@
     bat
     lazygit
     delta
-    rofi
+    btop
+
 
     # GUI
     firefox
@@ -33,5 +34,16 @@
     pavucontrol
     networkmanagerapplet
     pcmanfm
+    thunar
+    flameshot
+    conky
+    copyq
+    rofi
+    geany
+    lxappearance
+    calibre
+    alacritty
+    xournalpp
+    brave
   ];
 }
