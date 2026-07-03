@@ -4,28 +4,6 @@ let
 
   baseLibs = with pkgs; [
     makeWrapper
-    xorg.libX11
-    xorg.libXinerama
-    xorg.libXft
-    xorg.libXrender
-    xorg.libXres
-    xorg.libXrandr
-
-    libxcb-wm
-
-    libxcb-image
-    fontconfig
-    xorg.libXext
-    xorg.libXpm
-    imlib2
-    gd
-    gcc
-    gnumake
-    pkg-config
-    harfbuzz
-    imlib2
-    libXrandr
-
   ];
 
   dwmLibs = with pkgs; [
@@ -49,29 +27,6 @@ let
     libXft
   ];
 
-#        linux-vdso.so.1 (0x00007f5dc260e000)
-#        libc.so.6 => /usr/lib/libc.so.6 (0x00007f5dc2200000)
-#        libcrypt.so.2 => /usr/lib/libcrypt.so.2 (0x00007f5dc2598000)
-#
-
-
-# 
-
-
-
-
-
-
-#        libm.so.6 => /usr/lib/libm.so.6 (0x00007f5dc1f54000)
-#
-
-
-#        libbz2.so.1.0 => /usr/lib/libbz2.so.1.0 (0x00007f5dc1f17000)
-
-
-#        libbrotlidec.so.1 => /usr/lib/libbrotlidec.so.1 (0x00007f5dc1ecb000)
-#        libbrotlicommon.so.1 => /usr/lib/libbrotlicommon.so.1 (0x00007f5dc1ea8000)
-#
 
   slockLibs = with pkgs; [
     libX11
