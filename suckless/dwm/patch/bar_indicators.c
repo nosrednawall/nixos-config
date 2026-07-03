@@ -96,9 +96,20 @@ drawindicator(Monitor *m, Client *c, unsigned int occ, int x, int y, int w, int 
 void
 drawstateindicator(Monitor *m, Client *c, unsigned int occ, int x, int y, int w, int h, unsigned int tag, int filled, int invert)
 {
+	#if FAKEFULLSCREEN_CLIENT_PATCH && !FAKEFULLSCREEN_PATCH
+	if (c->fakefullscreen && c->isfloating)
+		drawindicator(m, c, occ, x, y, w, h, tag, filled, invert, floatfakefsindicatortype);
+	else if (c->fakefullscreen)
+		drawindicator(m, c, occ, x, y, w, h, tag, filled, invert, fakefsindicatortype);
+	else
+	#endif // FAKEFULLSCREEN_CLIENT_PATCH
 	if (c->isfloating)
 		drawindicator(m, c, occ, x, y, w, h, tag, filled, invert, floatindicatortype);
 	else
 		drawindicator(m, c, occ, x, y, w, h, tag, filled, invert, tiledindicatortype);
+	#if ALWAYSONTOP_PATCH
+	if (c->isfloating && c->alwaysontop)
+		drawindicator(m, c, occ, x, y, w, h, tag, filled, invert, aotindicatortype);
+	#endif // ALWAYSONTOP_PATCH
 }
 

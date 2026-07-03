@@ -1,5 +1,7 @@
 /* Settings */
+#if !(PERTAG_VANITYGAPS_PATCH || PERMON_VANITYGAPS_PATCH)
 static int enablegaps = 1;
+#endif // PERTAG_VANITYGAPS_PATCH
 
 static void
 setgaps(int oh, int ov, int ih, int iv)
@@ -14,9 +16,15 @@ setgaps(int oh, int ov, int ih, int iv)
 	selmon->gappih = ih;
 	selmon->gappiv = iv;
 
+	#if PERTAG_VANITYGAPS_PATCH && PERTAG_PATCH
+	selmon->pertag->gaps[selmon->pertag->curtag] =
+		((oh & 0xFF) << 0) | ((ov & 0xFF) << 8) | ((ih & 0xFF) << 16) | ((iv & 0xFF) << 24);
+	#endif // PERTAG_VANITYGAPS_PATCH
+
 	arrange(selmon);
 }
 
+#if IPC_PATCH || DWMC_PATCH
 /* External function that takes one integer and splits it
  * into four gap values:
  *    - outer horizontal (oh)
@@ -58,26 +66,54 @@ setgapsex(const Arg *arg)
 		iv = (arg->i & 0x7f);
 
 	/* Auto enable gaps if disabled */
+	#if PERTAG_VANITYGAPS_PATCH && PERTAG_PATCH
+	if (!selmon->pertag->enablegaps[selmon->pertag->curtag])
+		selmon->pertag->enablegaps[selmon->pertag->curtag] = 1;
+	#elif PERMON_VANITYGAPS_PATCH
+		selmon->enablegaps = 1;
+	#else
 	if (!enablegaps)
 		enablegaps = 1;
+	#endif // PERTAG_VANITYGAPS_PATCH | PERMON_VANITYGAPS_PATCH
 
 	setgaps(oh, ov, ih, iv);
 }
+#endif // IPC_PATCH | DWMC_PATCH
 
 static void
 togglegaps(const Arg *arg)
 {
+	#if PERTAG_VANITYGAPS_PATCH && PERTAG_PATCH
+	selmon->pertag->enablegaps[selmon->pertag->curtag] = !selmon->pertag->enablegaps[selmon->pertag->curtag];
+	#elif PERMON_VANITYGAPS_PATCH
+	selmon->enablegaps = !selmon->enablegaps;
+	#else
 	enablegaps = !enablegaps;
+	#endif // PERTAG_VANITYGAPS_PATCH | PERMON_VANITYGAPS_PATCH
 
+	#if BAR_PADDING_VANITYGAPS_PATCH
+	#if PERMON_VANITYGAPS_PATCH
+	updatebarpos(selmon);
+	for (Bar *bar = selmon->bar; bar; bar = bar->next)
+		XMoveResizeWindow(dpy, bar->win, bar->bx, bar->by, bar->bw, bar->bh);
+	#else
 	for (Monitor *m = mons; m; m = m->next) {
 		updatebarpos(m);
 		for (Bar *bar = m->bar; bar; bar = bar->next)
 			XMoveResizeWindow(dpy, bar->win, bar->bx, bar->by, bar->bw, bar->bh);
 	}
+	#endif // PERMON_VANITYGAPS_PATCH
 
+	#if BAR_SYSTRAY_PATCH
 	drawbarwin(systray->bar);
+	#endif // BAR_SYSTRAY_PATCH
+	#endif // BAR_PADDING_VANITYGAPS_PATCH
 
+	#if (PERTAG_VANITYGAPS_PATCH && PERTAG_PATCH) || PERMON_VANITYGAPS_PATCH
+	arrange(selmon);
+	#else
 	arrange(NULL);
+	#endif // PERTAG_VANITYGAPS_PATCH | PERMON_VANITYGAPS_PATCH
 }
 
 static void
@@ -163,11 +199,18 @@ incrivgaps(const Arg *arg)
 	);
 }
 
+#if DRAGMFACT_PATCH || CENTEREDMASTER_LAYOUT || CENTEREDFLOATINGMASTER_LAYOUT || COLUMNS_LAYOUT || DECK_LAYOUT || FIBONACCI_DWINDLE_LAYOUT || FIBONACCI_SPIRAL_LAYOUT || GAPPLESSGRID_LAYOUT || NROWGRID_LAYOUT || HORIZGRID_LAYOUT || BSTACK_LAYOUT || BSTACKHORIZ_LAYOUT || GRIDMODE_LAYOUT || FLEXTILE_DELUXE_LAYOUT || TILE_LAYOUT || (VANITYGAPS_MONOCLE_PATCH && MONOCLE_LAYOUT)
 static void
 getgaps(Monitor *m, int *oh, int *ov, int *ih, int *iv, unsigned int *nc)
 {
 	unsigned int n, oe, ie;
+	#if PERTAG_VANITYGAPS_PATCH && PERTAG_PATCH
+	oe = ie = m->pertag->enablegaps[m->pertag->curtag];
+	#elif PERMON_VANITYGAPS_PATCH
+	oe = ie = m->enablegaps;
+	#else
 	oe = ie = enablegaps;
+	#endif // PERTAG_VANITYGAPS_PATCH | PERMON_VANITYGAPS_PATCH
 	Client *c;
 
 	for (n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++);
@@ -181,4 +224,5 @@ getgaps(Monitor *m, int *oh, int *ov, int *ih, int *iv, unsigned int *nc)
 	*iv = m->gappiv*ie; // inner vertical gap
 	*nc = n;            // number of clients
 }
+#endif
 
