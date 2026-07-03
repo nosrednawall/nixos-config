@@ -60,16 +60,28 @@ let
   myDwm = pkgs.dwm.overrideAttrs (old: {
     src = ../suckless/dwm;
     buildInputs = baseLibs ++ dwmLibs;
+
   });
 
   mySt = pkgs.st.overrideAttrs (old: {
     src = ../suckless/st;
     buildInputs = baseLibs ++ stLibs;
+    postInstall = ''
+      wrapProgram $out/bin/st \
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
+    '';
   });
 
  myDmenu = pkgs.dmenu.overrideAttrs (old: {
     src = ../suckless/dmenu;
     buildInputs = baseLibs ++ dmenuLibs;
+    postInstall = ''
+      wrapProgram $out/bin/dmenu \
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
+      # Também wrap do stest (usado pelo dmenu_run)
+      wrapProgram $out/bin/stest \
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
+    '';
  });
 
  mySlock = pkgs.slock.overrideAttrs (old: {
@@ -107,6 +119,12 @@ let
       mkdir -p $out/bin
       cp build/dwmblocks $out/bin/dwmblocks
       runHook postInstall
+    '';
+
+    # Wrapper para bibliotecas
+    postInstall = ''
+      wrapProgram $out/bin/dwmblocks \
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
     '';
  });
 
