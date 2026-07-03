@@ -11,7 +11,7 @@ let
       #libXrandr
 
 
-      fontconfig
+      #fontconfig
       xorg.libXext
       xorg.libXpm
       imlib2
