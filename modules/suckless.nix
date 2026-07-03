@@ -75,6 +75,7 @@ let
 
   slockLibs = with pkgs; [
     libX11
+    libxcrypt
     libXext
     libXrandr
     libXinerama
