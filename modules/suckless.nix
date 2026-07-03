@@ -99,7 +99,6 @@ let
       mkdir -p $out/bin
       cp slock $out/bin/slock
       chmod 755 $out/bin/slock
-      chmod u+s $out/bin/slock  # ← SETUID AQUI!
       runHook postInstall
     '';
 
