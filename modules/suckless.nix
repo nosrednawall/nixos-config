@@ -65,7 +65,7 @@ let
     '';
  });
 
- myDwmblocks = pkgs.st.overrideAttrs (old: {
+ myDwmblocks = pkgs.dwmblocks.overrideAttrs (old: {
     src = ../suckless/dwmblocks-async;
     buildInputs = baseLibs ++ dwmblocksLibs;
     postInstall = ''
