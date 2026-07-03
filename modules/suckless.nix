@@ -1,7 +1,8 @@
 { config, pkgs, lib, ... }:
 
 let
-
+# Bibliotecas dos pacotes
+#
   baseLibs = with pkgs; [
     makeWrapper
   ];
@@ -39,8 +40,8 @@ let
     libXft
     libXrender
     freetype
-    xcb-proto  #  libX11-xcb
-    libxcb-image  #    libxcb-shm
+    xcb-proto
+    libxcb-image
     libXau
     libXdmcp
     libz
@@ -53,19 +54,12 @@ let
     libxcb
     libXau
     libXdmcp
-
-
   ];
 
+  # Gera o pacote myDwm
   myDwm = pkgs.dwm.overrideAttrs (old: {
     src = ../suckless/dwm;
     buildInputs = baseLibs ++ dwmLibs;
-
-    # Isto vai criar um wrapper que aponta para as bibliotecas corretas
-    postInstall = ''
-      wrapProgram $out/bin/dwm \
-        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
-    '';
   });
 
   mySt = pkgs.st.overrideAttrs (old: {
@@ -132,6 +126,7 @@ let
         --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
     '';
  });
+
   potato-c = pkgs.stdenv.mkDerivation {
     pname = "potato-c";
     version = "0.7.1";
