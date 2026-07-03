@@ -166,8 +166,8 @@ in
     mySt
     myDmenu
     myDwmblocks
-    mySlock
-    #pkgs.slock
+    #mySlock
+    pkgs.slock
     pkgs.slstatus
     pkgs.xinit
 
