@@ -12,7 +12,7 @@ is_running "xautolock" || xautolock -time 15 -locker ~/.local/bin/dwm/dwm-slock 
 # Inicia o picom em modo background
 is_running "picom" || picom -b
 
-copyq --start-server
+# copyq --start-server
 
 # Inicia o dunst se não estiver rodando
 #is_running "dunst" || dunst -conf "$HOME/.config/dunst/themes/${THEME_MODE}_${COLOR_MODE}" &
