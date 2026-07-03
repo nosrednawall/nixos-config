@@ -132,6 +132,29 @@ let
         --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
     '';
  });
+  potato-c = pkgs.stdenv.mkDerivation {
+    pname = "potato-c";
+    version = "0.7.1";
+    src = ../suckless/potato-c;
+
+    nativeBuildInputs = with pkgs; [ pkg-config pandoc ];
+    buildInputs = with pkgs; [ ncurses ];
+
+    preBuild = "cp config.def.h config.h";
+
+    makeFlags = [
+      "PREFIX=${placeholder "out"}"
+      "MANPREFIX=${placeholder "out"}/share/man"
+      "sysconfigdir=${placeholder "out"}/share"
+    ];
+
+    installPhase = ''
+      mkdir -p $out/bin $out/share/man/man1 $out/share/potato-c
+      cp bin/* $out/bin/
+      cp doc/*.1 $out/share/man/man1/ 2>/dev/null || true
+      cp on-*.sh $out/share/potato-c/ 2>/dev/null || true
+    '';
+  };
 
 in
 {
@@ -155,6 +178,7 @@ in
     myDmenu
     myDwmblocks
     mySlock
+    potato-c
     #pkgs.slock
     pkgs.slstatus
     pkgs.xinit
