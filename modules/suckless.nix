@@ -4,12 +4,12 @@ let
 
   baseLibs = with pkgs; [
      makeWrapper  # ← ADICIONE ISTO!
-     xorg.libX11
-     xorg.libXinerama
-     xorg.libXft
-     xorg.libXrender
-     xorg.libXres
-     xorg.libXrandr
+     #xorg.libX11
+     #xorg.libXinerama
+     #xorg.libXft
+     #xorg.libXrender
+     #xorg.libXres
+     #xorg.libXrandr
      libxcb
      libxcb-wm
      libxcb-util
@@ -27,7 +27,7 @@ let
      libXrandr
      libXcursor
      freetype
-     libconfig
+
   ];
 
   dwmLibs = with pkgs; [
@@ -39,7 +39,7 @@ let
   ];
 
   stLibs = with pkgs; [
-
+    libconfig
   ];
 
 
