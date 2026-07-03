@@ -6,7 +6,6 @@
   ];
 
   systemd.user.services.copyq = {
-    enable = true;  # Isso funciona se for um atributo dentro do serviço
     Unit = {
       Description = "CopyQ Clipboard Manager";
       After = [ "graphical-session.target" ];
