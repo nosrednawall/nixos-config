@@ -36,8 +36,8 @@
     X("", SCRIPT_PATH("sb-record"),      100,  6)   \
     X("", SCRIPT_PATH("sb-keyboard"),      1,  5)   \
     X("", SCRIPT_PATH("sb-battery"),      30,  4)   \
-*/  X("", SCRIPT_PATH("sb-moon"),       6000,  3)   \
-    X("", SCRIPT_PATH("sb-date"),        600,  2)   \
+    X("", SCRIPT_PATH("sb-moon"),       6000,  3)   \
+*/  X("", SCRIPT_PATH("sb-date"),        600,  2)   \
     X("", SCRIPT_PATH("sb-hour"),          1,  1)
 
 /*
