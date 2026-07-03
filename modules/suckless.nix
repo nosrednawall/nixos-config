@@ -8,11 +8,11 @@ let
       pkgs.xorg.libXinerama
       pkgs.xorg.libXft
       pkgs.xorg.libXrender
-      pkgs.xorg.libxcb
-      pkgs.xorg.libxcb-wm
-      pkgs.xorg.libxcb-util
-      pkgs.xorg.libxcb-image
-      pkgs.xorg.libxcb-res
+      pkgs.libxcb
+      pkgs.libxcb-wm
+      pkgs.libxcb-util
+      pkgs.libxcb-image
+      pkgs.libxcb-res
       pkgs.fontconfig
       pkgs.xorg.libXext
       pkgs.xorg.libXpm
