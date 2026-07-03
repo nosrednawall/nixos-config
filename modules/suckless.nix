@@ -5,8 +5,8 @@ let
   baseLibs = with pkgs; [
      makeWrapper  # ← ADICIONE ISTO!
 
-     #libXft
-     libXrender
+
+     #libXrender
      libXres
      libXrandr
      libxcb
@@ -44,7 +44,8 @@ let
   ];
 
   dmenuLibs = with pkgs; [
-      libXinerama
+    libXinerama
+    libXft
   ];
 
 
