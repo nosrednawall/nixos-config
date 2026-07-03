@@ -62,6 +62,7 @@ let
       pkgs.libXrandr
       pkgs.libXcursor
       pkgs.freetype
+      pkgs.libconfig
     ];
     postInstall = ''
       wrapProgram $out/bin/st \
@@ -146,5 +147,6 @@ in
     fontconfig
     libXcursor
     freetype
+    libconfig
   ]);
 }
