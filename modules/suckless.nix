@@ -20,7 +20,7 @@ let
     # Isto vai criar um wrapper que aponta para as bibliotecas corretas
     postInstall = ''
       wrapProgram $out/bin/dwm \
-        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath buildInputs}
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
     '';
   });
 
