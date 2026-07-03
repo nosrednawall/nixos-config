@@ -42,23 +42,28 @@ let
  myDmenu = pkgs.dmenu.overrideAttrs (old: {
     src = ../suckless/dmenu;
     buildInputs = (old.buildInputs or []) ++ [
-      pkgs.makeWrapper
+      pkgs.makeWrapper  # ← ADICIONE ISTO!
       pkgs.xorg.libX11
-      pkgs.xorg.libXft
       pkgs.xorg.libXinerama
+      pkgs.xorg.libXft
+      pkgs.xorg.libXrender
       pkgs.xorg.libXres
+      pkgs.xorg.libXrandr
+      pkgs.libxcb
+      pkgs.libxcb-wm
+      pkgs.libxcb-util
+      pkgs.libxcb-image
+      pkgs.fontconfig
+      pkgs.xorg.libXext
+      pkgs.xorg.libXpm
+      pkgs.imlib2
+      pkgs.gd
       pkgs.gcc
       pkgs.gnumake
       pkgs.pkg-config
       pkgs.harfbuzz
       pkgs.imlib2
       pkgs.libXrandr
-      pkgs.libxcb
-      pkgs.libxcb-wm
-      pkgs.libxcb-util
-      pkgs.libxcb-image
-      pkgs.gd
-      pkgs.fontconfig
     ];
     postInstall = ''
       wrapProgram $out/bin/dmenu \
