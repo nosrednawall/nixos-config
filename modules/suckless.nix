@@ -8,6 +8,8 @@ let
       pkgs.xorg.libXinerama
       pkgs.xorg.libXft
       pkgs.xorg.libXrender
+      pkgs.xorg.libXres
+      pkgs.xorg.libXrandr
       pkgs.libxcb
       pkgs.libxcb-wm
       pkgs.libxcb-util
