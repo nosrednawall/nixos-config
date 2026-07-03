@@ -90,22 +90,8 @@ let
  });
 
  mySlock = pkgs.slock.overrideAttrs (old: {
-    src = ../suckless/slock;
     buildInputs = baseLibs ++ slockLibs;
-
-    # CORREÇÃO: Adicionar setuid manualmente
-    installPhase = ''
-      runHook preInstall
-      mkdir -p $out/bin
-      cp slock $out/bin/slock
-      chmod 755 $out/bin/slock
-      runHook postInstall
-    '';
-
-    postInstall = ''
-      wrapProgram $out/bin/slock \
-        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
-    '';
+    src = ../suckless/slock;
   });
 
 
