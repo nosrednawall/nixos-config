@@ -62,6 +62,7 @@ in
     myDmenu
     pkgs.slock
     pkgs.slstatus
+    xinit
 
   ] ++ (with pkgs; [
     # Build dependencies (para compilar manualmente)
