@@ -91,6 +91,16 @@ let
     '';
  });
 
+ mySlock = pkgs.slock.overrideAttrs (old: {
+    src = ../suckless/slock;
+    buildInputs = baseLibs;
+    postInstall = ''
+      wrapProgram $out/bin/slock \
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
+    '';
+  });
+
+
  # Construção do dwmblocks-async
  myDwmblocks = pkgs.stdenv.mkDerivation (old:  {
     name = "dwmblocks-async";
@@ -148,7 +158,8 @@ in
     mySt
     myDmenu
     myDwmblocks
-    pkgs.slock
+    mySlock
+    #pkgs.slock
     pkgs.slstatus
     pkgs.xinit
 
