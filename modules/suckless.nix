@@ -5,10 +5,9 @@ let
   baseLibs = with pkgs; [
       makeWrapper
 #      xorg.libX11
-
-
       #libXrender
-      xorg.libXres
+      #
+      #libXres
       xorg.libXrandr
       libxcb
       fontconfig
