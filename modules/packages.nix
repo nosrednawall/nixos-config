@@ -22,7 +22,7 @@
     delta
     btop
     xautolock
-
+    killall
 
     # GUI
     firefox
