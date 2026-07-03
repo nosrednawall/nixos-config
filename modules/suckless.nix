@@ -13,7 +13,7 @@ let
      #libxcb-wm
      #libxcb-util
      #libxcb-image
-     fontconfig
+     #fontconfig
      xorg.libXext
      xorg.libXpm
      imlib2
