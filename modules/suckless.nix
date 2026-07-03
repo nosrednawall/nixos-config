@@ -3,28 +3,7 @@
 let
 
   baseLibs = with pkgs; [
-     makeWrapper  # ← ADICIONE ISTO!
-
-
-     #libXrender
-     #libXres
-     #libXrandr
-     #libxcb
-     #libxcb-wm
-     #libxcb-util
-     #libxcb-image
-     #fontconfig
-     #xorg.libXext
-     #xorg.libXpm
-     #imlib2
-     #gd
-     #gcc
-     #gnumake
-     #pkg-config
-     #harfbuzz
-     #imlib2
-     #libXrandr
-
+     makeWrapper
   ];
 
   dwmLibs = with pkgs; [
@@ -86,7 +65,7 @@ in
   # X11 with French AZERTY layout
   services.xserver = {
     enable = true;
-    xkb.layout = "br";
+    xkb.layout = "us";
 
     windowManager.dwm = {
       enable = true;
