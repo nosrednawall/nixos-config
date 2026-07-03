@@ -10,7 +10,7 @@ let
 
      #xorg.libXrender
      #xorg.libXres
-     xorg.libXrandr
+     #xorg.libXrandr
      libxcb
      libxcb-wm
      libxcb-util
