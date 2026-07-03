@@ -20,10 +20,10 @@ let
      #gd
      #gcc
      #gnumake
-     pkg-config
-     harfbuzz
-     imlib2
-     libXrandr
+     #pkg-config
+     #harfbuzz
+     #imlib2
+     #libXrandr
 
   ];
 
