@@ -181,4 +181,5 @@ in
       group = "root";
       source = "${mySlock}/bin/slock";
     };
+  };
 }
