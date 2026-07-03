@@ -5,7 +5,7 @@ let
   baseLibs = with pkgs; [
       makeWrapper
 #      xorg.libX11
-#      xorg.libXinerama
+      xorg.libXinerama
       xorg.libXft
       xorg.libXrender
       xorg.libXres
