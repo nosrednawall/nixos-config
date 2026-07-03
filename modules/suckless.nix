@@ -27,7 +27,7 @@ let
 
      #libXrandr
      #libXcursor
-     #freetype
+     freetype
 
   ];
 
