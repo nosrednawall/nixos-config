@@ -11,6 +11,7 @@
     ../../modules/fonts.nix
     ../../modules/packages.nix
     ../../modules/suckless.nix
+    ../../modules/polkit.nix
   ];
 
   # Hostname
@@ -41,10 +42,6 @@
 
   # Zsh system-wide
   programs.zsh.enable = true;
-
-  # Ativa o Polkit no sistema
-  security.polkit.enable = true;
-
 
   # User account
   users.users.anderson = {
