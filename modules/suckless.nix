@@ -4,12 +4,12 @@ let
 
   baseLibs = with pkgs; [
      makeWrapper  # ← ADICIONE ISTO!
-     xorg.libX11
-     xorg.libXinerama
-     xorg.libXft
-     xorg.libXrender
-     xorg.libXres
-     xorg.libXrandr
+     #xorg.libX11
+     #xorg.libXinerama
+     #xorg.libXft
+     #xorg.libXrender
+     #xorg.libXres
+     #xorg.libXrandr
      libxcb
      libxcb-wm
      libxcb-util
@@ -37,11 +37,11 @@ let
   ];
 
   stLibs = with pkgs; [
-    libconfig
-    libXft
-    harfbuzz
-    imlib2
-    libXcursor
+      libconfig
+      libXft
+      harfbuzz
+      imlib2
+      libXcursor
   ];
 
   dmenuLibs = with pkgs; [
