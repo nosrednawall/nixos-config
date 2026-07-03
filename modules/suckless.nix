@@ -110,11 +110,6 @@ let
       runHook postInstall
     '';
 
-    # Wrapper para bibliotecas
-    postInstall = ''
-      wrapProgram $out/bin/dwmblocks \
-        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
-    '';
  });
 
   potato-c = pkgs.stdenv.mkDerivation {
