@@ -28,6 +28,10 @@ let
   ];
 
 
+  dwmblocksLibs = with pkgs; [
+    libXinerama
+    libXft
+  ];
 
   myDwm = pkgs.dwm.overrideAttrs (old: {
     src = ../suckless/dwm;
@@ -59,7 +63,17 @@ let
       wrapProgram $out/bin/stest \
         --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
     '';
+ });
+
+ myDwmblocks = pkgs.st.overrideAttrs (old: {
+    src = ../suckless/dwmblocks-async;
+    buildInputs = baseLibs ++ dwmblocksLibs;
+    postInstall = ''
+      wrapProgram $out/bin/dwmblocks \
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
+    '';
   });
+
 in
 {
   # X11 with French AZERTY layout
