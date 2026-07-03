@@ -8,7 +8,7 @@ let
       #libXrender
       #
       #libXres
-      xorg.libXrandr
+      #libXrandr
       libxcb
       fontconfig
       xorg.libXext
