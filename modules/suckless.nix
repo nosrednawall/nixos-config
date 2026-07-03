@@ -12,9 +12,9 @@ let
      #xorg.libXres
      #xorg.libXrandr
      #libxcb
-     libxcb-wm
-     libxcb-util
-     libxcb-image
+     #libxcb-wm
+     #libxcb-util
+     #libxcb-image
      fontconfig
      xorg.libXext
      xorg.libXpm
