@@ -9,7 +9,8 @@ let
       #
       #libXres
       #libXrandr
-      libxcb
+
+      #libxcb
       fontconfig
       xorg.libXext
       xorg.libXpm
