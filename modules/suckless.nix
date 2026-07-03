@@ -8,7 +8,7 @@ let
 
      #xorg.libXinerama
 
-     xorg.libXrender
+     #xorg.libXrender
      xorg.libXres
      xorg.libXrandr
      libxcb
