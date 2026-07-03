@@ -3,6 +3,25 @@
 let
   myDwm = pkgs.dwm.overrideAttrs (old: {
     src = ../suckless/dwm;
+    buildInputs = (old.buildInputs or []) ++ [
+      pkgs.xorg.libX11
+      pkgs.xorg.libXinerama
+      pkgs.xorg.libXft
+      pkgs.xorg.libXrender
+      pkgs.xorg.libX11-xcb
+      pkgs.xorg.libxcb
+      pkgs.xorg.libxcb-res
+      pkgs.fontconfig
+      pkgs.xorg.libXext
+      pkgs.xorg.libXpm
+      pkgs.imlib2
+    ];
+
+    # Isto vai criar um wrapper que aponta para as bibliotecas corretas
+    postInstall = ''
+      wrapProgram $out/bin/dwm \
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath buildInputs}
+    '';
   });
 
   mySt = pkgs.st.overrideAttrs (old: {
@@ -33,24 +52,23 @@ in
     pkgs.slock
     pkgs.slstatus
 
-    # Build dependencies for compiling suckless tools locally
-    pkgs.xorg.libX11
-    pkgs.xorg.libXft
-    pkgs.xorg.libXinerama
-    pkgs.xorg.libXres
-    pkgs.gcc
-    pkgs.gnumake
-    pkgs.pkg-config
-    pkgs.harfbuzz
-    pkgs.imlib2
-    pkgs.libXrandr
-    pkgs.libxcb
-    pkgs.libxcb-wm
-    pkgs.libxcb-util
-    pkgs.libxcb-image
-    pkgs.libxcb-util
-    pkgs.gd
-
-    pkgs.xorg.xinit
-  ];
+  ] ++ (with pkgs; [
+    # Build dependencies (para compilar manualmente)
+    xorg.libX11
+    xorg.libXft
+    xorg.libXinerama
+    xorg.libXres
+    gcc
+    gnumake
+    pkg-config
+    harfbuzz
+    imlib2
+    libXrandr
+    libxcb
+    libxcb-wm
+    libxcb-util
+    libxcb-image
+    gd
+    fontconfig
+  ]);
 }
