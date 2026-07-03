@@ -19,9 +19,9 @@ let
       #gcc
       #gnumake
       #
-      #pkg-config
-      #harfbuzz
-      #imlib2
+      pkg-config
+      harfbuzz
+      imlib2
       #libXrandr
   ];
 
