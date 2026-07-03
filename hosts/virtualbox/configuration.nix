@@ -58,5 +58,15 @@
 
   # Enable flatpak in system
   services.flatpak.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    # Adiciona o repositório Flathub automaticamente na inicialização
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
   system.stateVersion = "26.05";
 }
