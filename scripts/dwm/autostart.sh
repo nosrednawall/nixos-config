@@ -7,7 +7,7 @@ is_running() {
 
 
 # Inicia o xautolock com as configurações personalizadas se não estiver rodando
-is_running "xautolock" || xautolock -time 15 -locker ~/.local/bin/dwm/dwm-slock-personalizado -detectsleep &
+is_running "xautolock" || xautolock -time 15 -locker ~/.local/bin/dwm/dwm-slock -detectsleep &
 
 # Inicia o picom em modo background
 is_running "picom" || picom -b
