@@ -21,7 +21,7 @@ let
       #
       pkg-config
       harfbuzz
-      imlib2
+      #imlib2
       #libXrandr
   ];
 
