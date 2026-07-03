@@ -38,7 +38,6 @@
     thunar
     flameshot
     conky
-    copyq
     rofi
     geany
     lxappearance

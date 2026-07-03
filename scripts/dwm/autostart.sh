@@ -17,7 +17,7 @@ is_running "picom" || picom -b
 #is_running "dunst" || dunst -conf "$HOME/.config/dunst/dunstrc" &
 
 # Inicia o copyq se não estiver rodando
-is_running "copyq" || copyq &
+# is_running "copyq" || copyq &
 
 # Inicia o daemon do emacs se não estiver rodando
 #is_running "emacs" || emacs --daemon &
