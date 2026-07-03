@@ -9,6 +9,7 @@
     ./neovim.nix
     ./ohmyposh.nix
     ./theming.nix
+    ./scripts.nix
   ];
 
   home.username = "anderson";
