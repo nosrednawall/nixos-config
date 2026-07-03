@@ -57,6 +57,7 @@
   };
 
   # Enable flatpak in system
+  xdg.portal.enable = true;
   services.flatpak.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     # Adiciona o repositório Flathub automaticamente na inicialização
