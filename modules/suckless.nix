@@ -11,7 +11,7 @@ let
      #xorg.libXrender
      #xorg.libXres
      #xorg.libXrandr
-     libxcb
+     #libxcb
      libxcb-wm
      libxcb-util
      libxcb-image
