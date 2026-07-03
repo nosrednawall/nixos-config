@@ -7,7 +7,7 @@ let
 
 
      #libXrender
-     libXres
+     #libXres
      libXrandr
      libxcb
      libxcb-wm
