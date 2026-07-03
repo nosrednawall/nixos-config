@@ -16,6 +16,13 @@ let
       pkgs.xorg.libXext
       pkgs.xorg.libXpm
       pkgs.imlib2
+      pkgs.gd
+      pkgs.gcc
+      pkgs.gnumake
+      pkgs.pkg-config
+      pkgs.harfbuzz
+      pkgs.imlib2
+      pkgs.libXrandr
     ];
 
     # Isto vai criar um wrapper que aponta para as bibliotecas corretas
