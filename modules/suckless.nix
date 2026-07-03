@@ -71,13 +71,6 @@ let
  myDmenu = pkgs.dmenu.overrideAttrs (old: {
     src = ../suckless/dmenu;
     buildInputs = baseLibs ++ dmenuLibs;
-    postInstall = ''
-      wrapProgram $out/bin/dmenu \
-        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
-      # Também wrap do stest (usado pelo dmenu_run)
-      wrapProgram $out/bin/stest \
-        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
-    '';
  });
 
  mySlock = pkgs.slock.overrideAttrs (old: {
