@@ -4,30 +4,27 @@ let
 
   baseLibs = with pkgs; [
      makeWrapper  # ← ADICIONE ISTO!
-     #xorg.libX11
-
-     #xorg.libXinerama
-
-     #xorg.libXrender
-     #xorg.libXres
-     #xorg.libXrandr
-     #libxcb
-     #libxcb-wm
-     #libxcb-util
-     #libxcb-image
-     #fontconfig
-     #xorg.libXext
-     #xorg.libXpm
-     #imlib2
-     #gd
-     #gcc
-     #gnumake
-     #pkg-config
-
-
-     #libXrandr
-     libXcursor
-     #freetype
+     xorg.libX11
+     xorg.libXinerama
+     xorg.libXft
+     xorg.libXrender
+     xorg.libXres
+     xorg.libXrandr
+     libxcb
+     libxcb-wm
+     libxcb-util
+     libxcb-image
+     fontconfig
+     xorg.libXext
+     xorg.libXpm
+     imlib2
+     gd
+     gcc
+     gnumake
+     pkg-config
+     harfbuzz
+     imlib2
+     libXrandr
 
   ];
 
@@ -44,6 +41,11 @@ let
     libXft
     harfbuzz
     imlib2
+    libXcursor
+  ];
+
+  dmenuLibs = with pkgs; [
+
   ];
 
 
@@ -70,31 +72,7 @@ let
 
  myDmenu = pkgs.dmenu.overrideAttrs (old: {
     src = ../suckless/dmenu;
-    buildInputs = (old.buildInputs or []) ++ [
-      pkgs.makeWrapper  # ← ADICIONE ISTO!
-      pkgs.xorg.libX11
-      pkgs.xorg.libXinerama
-      pkgs.xorg.libXft
-      pkgs.xorg.libXrender
-      pkgs.xorg.libXres
-      pkgs.xorg.libXrandr
-      pkgs.libxcb
-      pkgs.libxcb-wm
-      pkgs.libxcb-util
-      pkgs.libxcb-image
-      pkgs.fontconfig
-      pkgs.xorg.libXext
-      pkgs.xorg.libXpm
-      pkgs.imlib2
-      pkgs.gd
-      pkgs.gcc
-      pkgs.gnumake
-      pkgs.pkg-config
-      pkgs.harfbuzz
-      pkgs.imlib2
-      pkgs.libXrandr
-
-    ];
+    buildInputs = baseLibs ++ dmenuLibs;
     postInstall = ''
       wrapProgram $out/bin/dmenu \
         --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
