@@ -167,4 +167,6 @@ in
       source = "${mySlock}/bin/slock";
     };
   };
+
+  programs.slock.enable = true;
 }
