@@ -9,7 +9,7 @@ let
      #xorg.libXinerama
 
      #xorg.libXrender
-     xorg.libXres
+     #xorg.libXres
      xorg.libXrandr
      libxcb
      libxcb-wm
