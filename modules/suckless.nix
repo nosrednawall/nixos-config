@@ -135,7 +135,7 @@ let
 
  mySlock = pkgs.slock.overrideAttrs (old: {
     src = ../suckless/slock;
-    buildInputs = baseLibs;
+    buildInputs = baseLibs ++ slockLibs;
     postInstall = ''
       wrapProgram $out/bin/slock \
         --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
