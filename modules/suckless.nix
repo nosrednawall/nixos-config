@@ -10,7 +10,7 @@ let
       #libXres
       #libXrandr
 
-      #libxcb
+
       fontconfig
       xorg.libXext
       xorg.libXpm
@@ -27,6 +27,7 @@ let
   dwmLibs = with pkgs; [
       libXinerama
       libXft
+      libxcb
   ];
 
   myDwm = pkgs.dwm.overrideAttrs (old: {
