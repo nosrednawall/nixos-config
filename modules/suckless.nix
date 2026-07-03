@@ -60,6 +60,8 @@ let
       pkgs.harfbuzz
       pkgs.imlib2
       pkgs.libXrandr
+      pkgs.libXcursor
+
     ];
     postInstall = ''
       wrapProgram $out/bin/st \
@@ -141,5 +143,6 @@ in
     libxcb-image
     gd
     fontconfig
+    libXcursor
   ]);
 }
