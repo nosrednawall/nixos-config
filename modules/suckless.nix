@@ -135,6 +135,7 @@ let
 
 in
 {
+  programs.slock.enable = false;
   # X11 with French AZERTY layout
   services.xserver = {
     enable = true;
