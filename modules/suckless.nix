@@ -37,6 +37,34 @@ let
 
   mySt = pkgs.st.overrideAttrs (old: {
     src = ../suckless/st;
+    buildInputs = (old.buildInputs or []) ++ [
+      pkgs.makeWrapper  # ← ADICIONE ISTO!
+      pkgs.xorg.libX11
+      pkgs.xorg.libXinerama
+      pkgs.xorg.libXft
+      pkgs.xorg.libXrender
+      pkgs.xorg.libXres
+      pkgs.xorg.libXrandr
+      pkgs.libxcb
+      pkgs.libxcb-wm
+      pkgs.libxcb-util
+      pkgs.libxcb-image
+      pkgs.fontconfig
+      pkgs.xorg.libXext
+      pkgs.xorg.libXpm
+      pkgs.imlib2
+      pkgs.gd
+      pkgs.gcc
+      pkgs.gnumake
+      pkgs.pkg-config
+      pkgs.harfbuzz
+      pkgs.imlib2
+      pkgs.libXrandr
+    ];
+    postInstall = ''
+      wrapProgram $out/bin/st \
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
+    '';
   });
 
  myDmenu = pkgs.dmenu.overrideAttrs (old: {
