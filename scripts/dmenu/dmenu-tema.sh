@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Temas disponiveis
 solarized_dark="  Solarized Dark"
