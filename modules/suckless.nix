@@ -28,17 +28,6 @@ let
 
   ];
 
-#        linux-vdso.so.1 (0x00007f8ccdcfe000)
-
-
-#        libc.so.6 => /usr/lib/libc.so.6 (0x00007f8ccda00000)
-#
-
-
-#        /lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007f8ccdd00000)
-
-
-
   dwmLibs = with pkgs; [
       libXinerama
       libXft
@@ -102,14 +91,43 @@ let
     '';
  });
 
- myDwmblocks = pkgs.dwmblocks.overrideAttrs (old: {
+ # Construção do dwmblocks-async
+ myDwmblocks = pkgs.stdenv.mkDerivation (old:  {
+    name = "dwmblocks-async";
     src = ../suckless/dwmblocks-async;
-    buildInputs = baseLibs ++ dwmblocksLibs;
+
+    buildInputs = baseLibs ++ dwmblocksLibs ++ [
+      pkgs.pkg-config
+      pkgs.gcc
+      pkgs.gnumake
+    ];
+
+    # Configurações do Makefile
+    makeFlags = [
+      "PREFIX=$(out)"
+    ];
+
+    # Compilação
+    buildPhase = ''
+      runHook preBuild
+      make
+      runHook postBuild
+    '';
+
+    # Instalação
+    installPhase = ''
+      runHook preInstall
+      mkdir -p $out/bin
+      cp build/dwmblocks $out/bin/dwmblocks
+      runHook postInstall
+    '';
+
+    # Wrapper para bibliotecas
     postInstall = ''
       wrapProgram $out/bin/dwmblocks \
         --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
     '';
-  });
+ });
 
 in
 {
