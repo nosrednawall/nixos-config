@@ -20,6 +20,7 @@
     bat
     lazygit
     delta
+    rofi
 
     # GUI
     firefox

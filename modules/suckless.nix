@@ -113,7 +113,7 @@ in
   environment.systemPackages = [
     mySt
     myDmenu
-    myDwmblocks
+    #myDwmblocks
     pkgs.slock
     pkgs.slstatus
     pkgs.xinit
