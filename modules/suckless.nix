@@ -12,7 +12,6 @@ let
       pkgs.libxcb-wm
       pkgs.libxcb-util
       pkgs.libxcb-image
-      pkgs.libxcb-res
       pkgs.fontconfig
       pkgs.xorg.libXext
       pkgs.xorg.libXpm
