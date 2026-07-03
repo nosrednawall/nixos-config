@@ -4,6 +4,7 @@ let
   myDwm = pkgs.dwm.overrideAttrs (old: {
     src = ../suckless/dwm;
     buildInputs = (old.buildInputs or []) ++ [
+      pkgs.makeWrapper  # ← ADICIONE ISTO!
       pkgs.xorg.libX11
       pkgs.xorg.libXinerama
       pkgs.xorg.libXft
