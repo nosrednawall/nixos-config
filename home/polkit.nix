@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # 1. Ativa o Polkit no sistema (obrigatório)
-  security.polkit.enable = true;
 
   # 2. Instala o pacote do agente
   home.packages = with pkgs; [

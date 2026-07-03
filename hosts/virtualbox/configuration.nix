@@ -42,6 +42,10 @@
   # Zsh system-wide
   programs.zsh.enable = true;
 
+  # Ativa o Polkit no sistema
+  security.polkit.enable = true;
+
+
   # User account
   users.users.anderson = {
     isNormalUser = true;
