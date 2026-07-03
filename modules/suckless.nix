@@ -66,10 +66,6 @@ let
   mySt = pkgs.st.overrideAttrs (old: {
     src = ../suckless/st;
     buildInputs = baseLibs ++ stLibs;
-    postInstall = ''
-      wrapProgram $out/bin/st \
-        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath old.buildInputs}
-    '';
   });
 
  myDmenu = pkgs.dmenu.overrideAttrs (old: {
