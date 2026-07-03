@@ -168,5 +168,5 @@ in
     };
   };
 
-  programs.mySlock.enable = true;
+  programs.slock.enable = false;
 }
