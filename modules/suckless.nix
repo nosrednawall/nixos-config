@@ -61,7 +61,7 @@ let
       pkgs.imlib2
       pkgs.libXrandr
       pkgs.libXcursor
-
+      pkgs.freetype
     ];
     postInstall = ''
       wrapProgram $out/bin/st \
@@ -94,6 +94,7 @@ let
       pkgs.harfbuzz
       pkgs.imlib2
       pkgs.libXrandr
+
     ];
     postInstall = ''
       wrapProgram $out/bin/dmenu \
@@ -144,5 +145,6 @@ in
     gd
     fontconfig
     libXcursor
+    freetype
   ]);
 }
