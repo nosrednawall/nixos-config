@@ -173,4 +173,12 @@ in
     pkgs.xinit
 
   ];
+
+  security.wrappers = {
+    slock = {
+      setuid = true;
+      owner = "root";
+      group = "root";
+      source = "${mySlock}/bin/slock";
+    };
 }
