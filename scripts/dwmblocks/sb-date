@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Carrega função para aplicar o tema e o tema de cores
-source ~/.config/suckless/scripts/dwmblocks/sb-carrega-tema-dwmblocks
+source ~/.local/bin/dwmblocks/sb-carrega-tema-dwmblocks
 
 day=$(date "+%d")
 image="/usr/share/icons/Numix/64/places/calendar-$day.svg"
