@@ -15,9 +15,9 @@ let
      #libxcb-wm
      #libxcb-util
      #libxcb-image
-     fontconfig
-     xorg.libXext
-     xorg.libXpm
+     #fontconfig
+     #xorg.libXext
+     #xorg.libXpm
      imlib2
      gd
      gcc
