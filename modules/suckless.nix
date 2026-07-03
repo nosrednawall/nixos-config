@@ -39,8 +39,21 @@ let
     src = ../suckless/st;
   });
 
-  myDmenu = pkgs.dmenu.overrideAttrs (old: {
+ myDmenu = pkgs.dmenu.overrideAttrs (old: {
     src = ../suckless/dmenu;
+    buildInputs = (old.buildInputs or []) ++ [
+      pkgs.makeWrapper
+      pkgs.xorg.libX11
+      pkgs.xorg.libXft
+      pkgs.xorg.libXinerama
+    ];
+    postInstall = ''
+      wrapProgram $out/bin/dmenu \
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath buildInputs}
+      # Também wrap do stest (usado pelo dmenu_run)
+      wrapProgram $out/bin/stest \
+        --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath buildInputs}
+    '';
   });
 in
 {
@@ -63,24 +76,5 @@ in
     pkgs.slock
     pkgs.slstatus
     pkgs.xinit
-
-  ] ++ (with pkgs; [
-    # Build dependencies (para compilar manualmente)
-    xorg.libX11
-    xorg.libXft
-    xorg.libXinerama
-    xorg.libXres
-    gcc
-    gnumake
-    pkg-config
-    harfbuzz
-    imlib2
-    libXrandr
-    libxcb
-    libxcb-wm
-    libxcb-util
-    libxcb-image
-    gd
-    fontconfig
-  ]);
+  ];
 }
