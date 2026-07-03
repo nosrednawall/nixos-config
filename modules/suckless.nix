@@ -49,6 +49,48 @@ let
     libXft
   ];
 
+#        linux-vdso.so.1 (0x00007f5dc260e000)
+#        libc.so.6 => /usr/lib/libc.so.6 (0x00007f5dc2200000)
+#        libcrypt.so.2 => /usr/lib/libcrypt.so.2 (0x00007f5dc2598000)
+#
+
+
+# 
+
+
+
+
+
+
+#        libm.so.6 => /usr/lib/libm.so.6 (0x00007f5dc1f54000)
+#
+
+
+#        libbz2.so.1.0 => /usr/lib/libbz2.so.1.0 (0x00007f5dc1f17000)
+
+
+#        libbrotlidec.so.1 => /usr/lib/libbrotlidec.so.1 (0x00007f5dc1ecb000)
+#        libbrotlicommon.so.1 => /usr/lib/libbrotlicommon.so.1 (0x00007f5dc1ea8000)
+#
+
+  slockLibs = with pkgs; [
+    libX11
+    libXext
+    libXrandr
+    libXinerama
+    imlib2
+    libxcb
+    libXft
+    libXrender
+    freetype
+    xcb-proto  #  libX11-xcb
+    libxcb-image  #    libxcb-shm
+    libXau
+    libXdmcp
+    libz
+    libpng
+  ];
+
 
   dwmblocksLibs = with pkgs; [
     libxcb-util
