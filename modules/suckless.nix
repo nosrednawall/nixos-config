@@ -3,18 +3,27 @@
 let
 
   baseLibs = with pkgs; [
-      makeWrapper
-      libXrender
-      libXres
-      libXrandr
+      makeWrapper  # ← ADICIONE ISTO!
+      xorg.libX11
+      xorg.libXinerama
+      xorg.libXft
+      xorg.libXrender
+      xorg.libXres
+      xorg.libXrandr
+      libxcb
+      libxcb-wm
+      libxcb-util
+      libxcb-image
       fontconfig
-      libXpm
+      xorg.libXext
+      xorg.libXpm
       imlib2
       gd
       gcc
       gnumake
       pkg-config
       harfbuzz
+      imlib2
       libXrandr
   ];
 
