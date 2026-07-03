@@ -135,6 +135,8 @@ let
 
 in
 {
+# Desabilita o slock do nixos
+  programs.slock.enable = false;
 
   services.xserver = {
     enable = true;
@@ -156,10 +158,6 @@ in
     #pkgs.slock
     pkgs.slstatus
     pkgs.xinit
-    (pkgs.runCommand "slock" {} ''
-      mkdir -p $out/bin
-      ln -s ${mySlock}/bin/slock $out/bin/slock
-    '')
   ];
 
   security.wrappers = {
@@ -169,11 +167,6 @@ in
       group = "root";
       source = "${mySlock}/bin/slock";
     };
-  };
-
-  programs.slock = {
-      enable = true;
-      package = mySlock
   };
 
 }
