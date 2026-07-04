@@ -3,9 +3,14 @@
 {
   home.packages = with pkgs; [
     copyq
+    dex  # Para gerenciar .desktop
   ];
 
-  # Cria um arquivo .desktop para autostart
+  # ============================================
+  # ARQUIVOS .DESKTOP PARA AUTOSTART
+  # ============================================
+
+  # CopyQ
   home.file.".config/autostart/copyq.desktop".text = ''
     [Desktop Entry]
     Type=Application
