@@ -5,6 +5,6 @@
      dunst
    ];
 
-   services.dunst.enable = true;
    xdg.configFile."dunst".source = ../config/dunst;
+   services.dunst.enable = true;
 }
