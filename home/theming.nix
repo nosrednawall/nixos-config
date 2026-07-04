@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   themeContent = ''
@@ -46,6 +46,13 @@ let
 in {
   # ... suas outras configurações ...
 
+  home.packages = with pkgs; [
+    pywal
+    feh
+    nsxiv
+  ];
+
+
   home.file.".theme_selected" = {
     text = themeContent;
     executable = true;
@@ -58,11 +65,6 @@ in {
     fi
   '';
 
-  home.packages = with pkgs; [
-    pywal
-    feh
-    nsxiv
-  ];
 
   # Pywal templates — wal generates themed configs from these
   xdg.configFile."wal/templates".source = ../config/wal/templates;
