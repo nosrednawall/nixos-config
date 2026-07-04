@@ -12,7 +12,6 @@
     ./scripts.nix
     ./copyq.nix
     ./dunst.nix
-#    ./emacs.nix
   ];
 
   home.username = "anderson";
