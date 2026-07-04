@@ -5,6 +5,9 @@
     copyq
   ];
 
+
+
+
   home.file.".xprofile".text = ''
     # Garante o PATH do NixOS para o .xprofile
     export PATH="$HOME/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:$PATH"
