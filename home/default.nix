@@ -11,7 +11,6 @@
     ./theming.nix
     ./scripts.nix
     ./copyq.nix
-    ./dunst.nix
   ];
 
   home.username = "anderson";
