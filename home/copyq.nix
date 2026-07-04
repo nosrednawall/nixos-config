@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     copyq
-    dex  # Para gerenciar .desktop
   ];
-
+  services.copyq.enable = true;
 }

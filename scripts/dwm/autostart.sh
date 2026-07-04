@@ -10,7 +10,7 @@ is_running() {
 # ============================================
 # Executa todos os arquivos .desktop em ~/.config/autostart
 # Usa o dex para gerenciar isso
-is_running "dex" || dex --autostart --environment xdg &
+#is_running "dex" || dex --autostart --environment xdg &
 
 # ============================================
 # PROGRAMAS ESPECÍFICOS (que não usam .desktop)
