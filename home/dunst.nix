@@ -2,7 +2,7 @@
 
 {
    home.packages = with pkgs; [
-    dunst
+     dunst
    ];
 
    services.dunst.enable = true;
