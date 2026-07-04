@@ -29,7 +29,6 @@
     mpv
     feh
     xclip
-    dunst
     picom
     arandr
     pavucontrol
