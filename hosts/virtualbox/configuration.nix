@@ -11,7 +11,7 @@
     ../../modules/fonts.nix
     ../../modules/packages.nix
     ../../modules/suckless.nix
-    ../../modules/polkit.nix
+    #../../modules/polkit.nix
   ];
 
   # Hostname
