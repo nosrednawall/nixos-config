@@ -12,7 +12,6 @@
     ../../modules/packages.nix
     ../../modules/suckless.nix
     ../../modules/polkit.nix
-    ../../modules/emacs.nix
   ];
 
   # Hostname
