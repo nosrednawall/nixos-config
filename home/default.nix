@@ -10,6 +10,10 @@
     ./ohmyposh.nix
     ./theming.nix
     ./scripts.nix
+    ./dunst.nix
+    ./copyq.nix
+    ./emacs.nix
+
   ];
 
   home.username = "anderson";

@@ -42,6 +42,11 @@
   # Zsh system-wide
   programs.zsh.enable = true;
 
+  # ativa o polkit
+  security.polkit.enable = true;
+
+  #TODO Verificar se precisa de polkit grafico
+
   # User account
   users.users.anderson = {
     isNormalUser = true;
