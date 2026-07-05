@@ -31,18 +31,6 @@ let
     COLOR_15="#c3d8b1"
     COLOR_16="#6d798c"
   '';
-
-  themeScript = pkgs.writeShellScriptBin "ensure-theme" ''
-    THEME_FILE="$HOME/.theme_selected"
-
-    if [ ! -f "$THEME_FILE" ]; then
-      cat > "$THEME_FILE" << 'EOF'
-    ${themeContent}
-    EOF
-      chmod +x "$THEME_FILE"
-      echo "Arquivo ~/.theme_selected criado"
-    fi
-  '';
 in {
   # ... suas outras configurações ...
 
@@ -52,19 +40,27 @@ in {
     nsxiv
   ];
 
-
+  # Criar o arquivo .theme_selected
   home.file.".theme_selected" = {
     text = themeContent;
     executable = true;
     # force = false; # Não sobrescreve se existir
   };
 
-  home.activation.ensureTheme = pkgs.lib.hm.dag.entryAfter ["writeBoundary"] ''
-    if [ ! -f "$HOME/.theme_selected" ]; then
-      ${themeScript}/bin/ensure-theme
+  # Activation script para verificar e criar se não existir
+  home.activation.ensureTheme = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    THEME_FILE="$HOME/.theme_selected"
+
+    if [ ! -f "$THEME_FILE" ]; then
+      cat > "$THEME_FILE" << 'EOF'
+    ${themeContent}
+    EOF
+      chmod +x "$THEME_FILE"
+      echo "Arquivo ~/.theme_selected criado com configurações padrão"
+    else
+      echo "Arquivo ~/.theme_selected já existe, mantendo configurações atuais"
     fi
   '';
-
 
   # Pywal templates — wal generates themed configs from these
   xdg.configFile."wal/templates".source = ../config/wal/templates;
@@ -74,6 +70,4 @@ in {
     source = ../scripts/wall-set;
     executable = true;
   };
-
-
 }
