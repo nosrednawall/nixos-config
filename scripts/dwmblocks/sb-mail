@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-
+#!/bin/sh
 # Display unread email count.
 
 # Check internet connectivity.
