@@ -8,7 +8,7 @@
 #define STATUSBAR "dwmblocks"
 
 #include <X11/XF86keysym.h>
-#define PATH(name) "~/.config/suckless/scripts/"name
+#define PATH(name) "~/.local/bin/"name
 
 
 /* appearance */
