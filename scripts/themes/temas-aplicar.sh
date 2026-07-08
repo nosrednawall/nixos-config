@@ -5,7 +5,7 @@
 # ============================================
 
 # Configurações
-CONFIG_FILE="$HOME/.config/suckless/scripts/themes/temas.conf"
+CONFIG_FILE="$HOME/.local/bin/themes/temas.conf"
 XRESOURCES_FILE="$HOME/.Xresources"
 LOG_FILE="/tmp/temas-aplicar-debug.log"
 
