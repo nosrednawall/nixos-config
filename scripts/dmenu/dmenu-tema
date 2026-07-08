@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Configurações
-CONFIG_FILE="$HOME/.config/suckless/scripts/themes/temas.conf"
-TEMA_APPLY_SCRIPT="$HOME/.config/suckless/scripts/themes/temas-aplicar.sh"
+CONFIG_FILE="$HOME/.local/bin/themes/temas.conf"
+TEMA_APPLY_SCRIPT="$HOME/.local/bin/themes/temas-aplicar.sh"
 
 # Função para listar temas por modo
 list_themes_by_mode() {
