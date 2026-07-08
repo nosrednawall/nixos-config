@@ -1,8 +1,8 @@
 /* user and group to drop privileges to */
 static const char *user = "nobody";
-static const char *group = "nogroup"; // use "nobody" for arch
+static const char *group = "nobody"; // use "nobody" for arch
 
-#include "themes/nord_dark.h"
+//#include "themes/nord_dark.h"
 
 /* Background image path, should be available to the user above */
 static const char *background_image =

@@ -2,13 +2,13 @@
 
 /* Helper macros for spawning commands */
 #define CMD(...)   { .v = (const char*[]){ __VA_ARGS__, NULL } }
-#define SHCMD(cmd) { .v = (const char*[]){ "/usr/bin/env", "sh", "-c", cmd, NULL } }
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* This defines the name of the executable that handles the bar (used for signalling purposes) */
 #define STATUSBAR "dwmblocks"
 
 #include <X11/XF86keysym.h>
-#define PATH(name) "~/.local/bin/"name
+#define PATH(name) "~/.config/suckless/scripts/"name
 
 
 /* appearance */
@@ -27,7 +27,7 @@ static const int smartgaps_fact          = 3;   /* gap factor when there is only
 static const char autostartblocksh[]     = "autostart_blocking.sh";
 static const char autostartsh[]          = "autostart.sh";
 static const char dwmdir[]               = "dwm";
-static const char localshare[]           = ".local/bin";
+static const char localshare[]           = ".local/share";
 static const int showbar                 = 1;   /* 0 means no bar */
 static const int topbar                  = 1;   /* 0 means bottom bar */
 static const int bar_height              = 0;   /* 0 means derive from font, >= 1 explicit height */
@@ -50,8 +50,8 @@ static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const char *fonts[]          	 = {
   "Iosevka Term:size=11",
   "Symbols Nerd Font:style=Bold:antialias=true:size=12",  //for dwmblocks
-  //"Font Awesome 6 Free Solid:style=Bold:size=12",  // for weather in dwmblocks
-  //"PowerlineSymbols Bold:style=Bold:size=12",  // for weather in dwmblocks
+  "Font Awesome 6 Free Solid:style=Bold:size=12",  // for weather in dwmblocks
+  "PowerlineSymbols Bold:style=Bold:size=12",  // for weather in dwmblocks
 };
 static const char dmenufont[]            = "Caskaydia Mono Nerd Font:size=11:style=Regular:antialias=true";
 
@@ -74,13 +74,13 @@ static char *colors[][ColCount] = {
 	[SchemeLtSymbol]     = { ltsymbolfgcolor,  ltsymbolbgcolor,  c000000,              c000000 },
 };
 
-const char *spcmd0[]  = {"st", "-n", "spterm", "-g", "100x25", NULL };
+const char *spcmd0[]  = {"st", "-c", "spterm", "-g", "100x25", NULL };
 const char *spcmd1[]  = {"flatpak", "run", "com.bitwarden.desktop", NULL };
-const char *spcmd2[]  = {"st", "-n", "spnmtui", "-g", "100x25", "-e", "nmtui", NULL };
-const char *spcmd3[]  = {"st", "-n", "sprmpc", "-g", "100x25", "-e", "rmpc", NULL };
+const char *spcmd2[]  = {"st", "-c", "spnmtui", "-g", "100x25", "-e", "nmtui", NULL };
+const char *spcmd3[]  = {"st", "-c", "sprmpc", "-g", "100x25", "-e", "rmpc", NULL };
 const char *spcmd4[]  = {"/usr/bin/firefoxpwa", "site", "launch", "01K04YSNWVWAC0G6TD61VN9ZPV",  NULL };
 const char *spcmd5[]  = {"qalculate-gtk", "--class", "spqalculate-gtk" , NULL };
-const char *spcmd6[]  = {"st", "-n", "sppulse", "-g", "100x34", "-e", "pulsemixer", NULL };
+const char *spcmd6[]  = {"st", "-c", "sppulse", "-g", "100x34", "-e", "pulsemixer", NULL };
 
 static Sp scratchpads[] = {
    /* name          cmd  */
@@ -174,13 +174,13 @@ static const Rule rules[] = {
 	RULE(.class = "kruler", .tags = 0, .isfloating = 1)
 
 	// Scratchpads
-	RULE(.instance = "spterm",                              .tags = SPTAG(0), .isfloating = 1)
-	RULE(.instance = "bitwarden",                           .tags = SPTAG(1), .isfloating = 1)
-	RULE(.instance = "spnmtui" ,                            .tags = SPTAG(2), .isfloating = 1)
-	RULE(.instance = "sprmpc",                              .tags = SPTAG(3), .isfloating = 1)
-	RULE(.instance = "FFPWA-01K04YSNWVWAC0G6TD61VN9ZPV",    .tags = SPTAG(4), .isfloating = 1)
-  RULE(.class    = "spqalculate-gtk",                     .tags = SPTAG(5), .isfloating = 1)
-  RULE(.instance = "sppulse",                             .tags = SPTAG(6), .isfloating = 1)
+	RULE(.class = "spterm",                              .tags = SPTAG(0), .isfloating = 1)
+	RULE(.class = "bitwarden",                           .tags = SPTAG(1), .isfloating = 1)
+	RULE(.class = "spnmtui" ,                            .tags = SPTAG(2), .isfloating = 1)
+	RULE(.class = "sprmpc",                              .tags = SPTAG(3), .isfloating = 1)
+	RULE(.class = "FFPWA-01K04YSNWVWAC0G6TD61VN9ZPV",    .tags = SPTAG(4), .isfloating = 1)
+  RULE(.class = "spqalculate-gtk",                     .tags = SPTAG(5), .isfloating = 1)
+  RULE(.class = "sppulse",                             .tags = SPTAG(6), .isfloating = 1)
 
  // Plots no emacs
  RULE(.instance = "matplotlib", .tags = 0, .isfloating = 1)

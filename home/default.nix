@@ -25,6 +25,11 @@
     recursive = true;
   };
 
+  home.file.".config/flameshot" = {
+    source = ../config/flameshot;  # Pasta local com init.el, config.el, packages.el
+    recursive = true;
+  };
+
 
   home.stateVersion = "26.05";
 
