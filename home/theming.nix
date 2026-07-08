@@ -47,21 +47,6 @@ in {
     # force = false; # Não sobrescreve se existir
   };
 
-  # Activation script para verificar e criar se não existir
-  home.activation.ensureTheme = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    THEME_FILE="$HOME/.theme_selected"
-
-    if [ ! -f "$THEME_FILE" ]; then
-      cat > "$THEME_FILE" << 'EOF'
-    ${themeContent}
-    EOF
-      chmod +x "$THEME_FILE"
-      echo "Arquivo ~/.theme_selected criado com configurações padrão"
-    else
-      echo "Arquivo ~/.theme_selected já existe, mantendo configurações atuais"
-    fi
-  '';
-
   # Pywal templates — wal generates themed configs from these
   xdg.configFile."wal/templates".source = ../config/wal/templates;
 
